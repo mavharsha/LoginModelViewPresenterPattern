@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sk.maverick.harsha.loginmodelviewpresenter.LoginActivity">
+
+    <EditText
+        android:layout_width="217dp"
+        android:layout_height="44dp"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:ems="10"
+        android:id="@+id/username_et"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_login"
+        app:layout_constraintTop_toTopOf="@+id/activity_login"
+        android:layout_marginTop="120dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_login" />
+
+    <EditText
+        android:layout_width="215dp"
+        android:layout_height="42dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/password_et"
+        android:text="Password"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_login"
+        app:layout_constraintTop_toBottomOf="@+id/username_et"
+        android:layout_marginTop="32dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_login" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:id="@+id/login_btn"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_login"
+        app:layout_constraintTop_toBottomOf="@+id/password_et"
+        android:layout_marginTop="40dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_login" />
+
+    <TextView
+        android:text="Status"
+        android:layout_width="60dp"
+        android:layout_height="18dp"
+        android:id="@+id/status_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_login"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_login"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_login"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="0.84" />
+</android.support.constraint.ConstraintLayout>
