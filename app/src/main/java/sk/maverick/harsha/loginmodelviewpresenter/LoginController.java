@@ -1,33 +1,28 @@
 package sk.maverick.harsha.loginmodelviewpresenter;
 
-/**
- * Created by Harsha on 6/30/2016.
- */
 
-public class LoginController {
+class LoginController {
 
-    ITalkToLoginActivity _ITalkToLoginActivity;
+    private ITalkToLoginActivity _ITalkToLoginActivity;
+    private LoginService _service;
 
-    public LoginController(ITalkToLoginActivity talkToLoginActivity) {
+    LoginController(ITalkToLoginActivity talkToLoginActivity, LoginService service) {
+
         this._ITalkToLoginActivity = talkToLoginActivity;
+        this._service = service;
     }
 
+    void onLoginClicked() {
 
-
-    public void onLoginClicked(String username, String password){
-
-        int responseStatusCode = LoginService.callToTheServer(username, password);
-        String reponseFromLoginPresenter = LoginPresenter.IRespondWithTextCorrespondingToTheStatusCodeSent(responseStatusCode);
-        _ITalkToLoginActivity.UpdateText(reponseFromLoginPresenter);
-    }
-
-
-
-
-
-    public interface ITalkToLoginActivity{
-
-        void showError();
-        void UpdateText(String text);
+        int responseStatusCode = _service.callToTheServer(_ITalkToLoginActivity.getUsername(), _ITalkToLoginActivity.getPassword());
+        int responseFromLoginPresenter;
+        if (responseStatusCode == 200) {
+            responseFromLoginPresenter = LoginPresenter.IRespondWithTextCorrespondingToTheStatusCodeSent(responseStatusCode);
+            _ITalkToLoginActivity.UpdateText(responseFromLoginPresenter);
+            return;
+        }
+        responseFromLoginPresenter = LoginPresenter.IRespondWithTextCorrespondingToTheStatusCodeSent(responseStatusCode);
+        _ITalkToLoginActivity.showError(responseFromLoginPresenter);
+        return;
     }
 }

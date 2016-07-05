@@ -6,7 +6,7 @@ package sk.maverick.harsha.loginmodelviewpresenter;
 
 public class LoginService {
 
-    public static int callToTheServer(String username, String password){
+    public int callToTheServer(String username, String password){
 
         if(username.equalsIgnoreCase("mavharsha") && password.equalsIgnoreCase("awesome")){
             return 200;

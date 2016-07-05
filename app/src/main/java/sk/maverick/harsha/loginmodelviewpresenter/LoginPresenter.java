@@ -6,13 +6,10 @@ package sk.maverick.harsha.loginmodelviewpresenter;
 
 public class LoginPresenter {
 
-    public static String IRespondWithTextCorrespondingToTheStatusCodeSent(int statuscode){
-
-
+    public static int IRespondWithTextCorrespondingToTheStatusCodeSent(int statuscode){
         if(statuscode == 200){
-            return "Success";
+            return R.string.success;
         }
-
-        return "Forbidden";
+        return R.string.fail;
     }
 }
